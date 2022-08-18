@@ -1,0 +1,65 @@
+.signin {
+  display: none;
+}
+.signin_active {
+  display: block;
+}
+.control {
+    width: 100%;
+    display: block;
+    padding: 10px 20px;
+    margin: 0 0 20px 0;
+    font-family: Golos, Arial, sans-serif;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+
+.btn {
+  font-family: Golos, Arial, sans-serif;
+  color: #fff;
+  background-color: #06f;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0 20px 0;
+  overflow: hidden;
+  outline: none;
+  padding: 8px 12px;
+  text-align: center;
+  transition: 0.3s ease;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.welcome {
+  display: none;
+}
+
+.welcome_active {
+  display: block;
+  text-align: center;
+}
+
+.logoutbutton{
+  display: none;
+}
+
+.logoutbutton-active{
+  background-color: red;
+  font-size: 24px;
+  margin-left: 45%;
+  margin-top: 2%;
+  padding-top: 3.5%;
+  padding-bottom: 3.5%;
+  border-radius: 50%;
+}
+
+.logoutbutton-active:active{
+  border-radius: 20%;
+}
