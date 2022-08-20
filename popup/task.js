@@ -1,5 +1,4 @@
 function popup(){
-
     const popup = document.getElementById('subscribe-modal')
     const popupClose = document.getElementsByClassName('modal__close modal__close_times')
     if (checkCoockie('modal')){
@@ -16,19 +15,14 @@ function popup(){
 
 function setCookie(name, value){
     document.cookie = name + '=' + encodeURIComponent(value);
+    return true
 }
 
 function checkCoockie(name){
-    const pairs = document.cookie.split('; ');
-    const cookie = pairs.find(item => item.startsWith(name + '='));
-    if (cookie == 'undefined'){
-        return true
-    } else{
-        return false
-    }
-    
+    let pairs = document.cookie.split('; ');
+    let cookie = pairs.find(item => item.startsWith(name + '='));
+    return cookie != undefined
 }
 
-// Прошу подсказать, почему cookie не устанавливаются. Функия setCookie в точности как на учебном видео
 
 popup()

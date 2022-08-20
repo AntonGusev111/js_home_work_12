@@ -1,7 +1,7 @@
 function getData(){
-    let user_id = localStorage.getItem('user_id');
-    if (user_id != null){
-        GrantAccess (user_id);
+    let userId = localStorage.getItem('user_id');
+    if (userId != null){
+        GrantAccess (userId);
     }else{
         signin__form.onsubmit = (e)=> {
             e.preventDefault();
@@ -15,20 +15,17 @@ function login(formData){
     const xhr = new XMLHttpRequest;
     xhr.open('POST', signin__form.action, true)
     xhr.send(formData)
-    xhr.onloadend = function(e) {
-        if (xhr.status == 200){
-            if(JSON.parse(xhr.responseText).success){
-                GrantAccess(JSON.parse(xhr.responseText).user_id) 
-            } else{
-                alert('Неверный логин/пароль')
-                controlClean()
+    xhr.onload = function(e) {
+        if(xhr.response.success){
+            GrantAccess(xhr.response.user_id) 
+        } else{
+              alert('Неверный логин/пароль')
+              signin__form.reset()
             }
-                    
-        } else {
-            alert(xhr.status)
-        }
+
 
     }
+    xhr.responseType = 'json';
 }
 
 function GrantAccess (id){
@@ -44,16 +41,9 @@ function GrantAccess (id){
         localStorage.clear();
         welcome.className = "welcome";
         button.className = 'logoutbutton';
-        controlClean()
+        signin__form.reset()
         form.className = 'signin signin_active'
     })
-}
-
-function controlClean(){
-    const inputs = document.getElementsByClassName('control')
-    for (let i =0; i < inputs.length; i++){
-        inputs[i].value = '';
-    }
 }
 
 getData()
